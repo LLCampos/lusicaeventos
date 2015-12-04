@@ -22,7 +22,13 @@ if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_
     $tablename = test_input($_POST['tablename']);
     $attributes = test_input($_POST['attributes']);
     $values = test_input($_POST['values']);
-    $insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
+    $query_insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
+
+    if ($conn->query($query_insert) === TRUE) {
+        echo "New record created successfully! :-) ";
+    } else {
+        echo 'Error:' . $conn->error;
+    }
 }
 
 
