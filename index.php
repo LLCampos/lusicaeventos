@@ -24,6 +24,8 @@ if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_
     $values = test_input($_POST['values']);
     $query_insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
 
+    echo $query_insert;
+
     if ($conn->query($query_insert) === TRUE) {
         echo "New record created successfully! :-) ";
     } else {
@@ -49,9 +51,9 @@ if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_
 <br><hr><br>
 
 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = 'post'>
-    INSERT INTO: <input type = 'text' name='tablename'><br><br>
-    Atribute Lists: <input type = 'text' name='attributes'><br><br>
-    VALUES: <input type = 'text' name='values'><br><br>
+    INSERT INTO (ex: Utilizador): <input type = 'text' name='tablename'><br><br>
+    Atribute Lists (ex: id_facebook, nr_feed, nome): <input type = 'text' name='attributes'><br><br>
+    VALUES (ex: 10, '541', 'Jorge Silva'): <input type = 'text' name='values'><br><br>
     <input type='submit'>
 </form>
 
