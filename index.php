@@ -18,13 +18,19 @@ function test_input($data) {
    return $data;
 }
 
+$tablename = '';
+$attributes = '';
+$values = '';
+
 if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_POST['values']))) {
     $tablename = test_input($_POST['tablename']);
     $attributes = test_input($_POST['attributes']);
     $values = test_input($_POST['values']);
-    $query_insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
+}
 
-    echo $query_insert;
+if (($tablename != '') and ($attributes != '') and ($values != '')) {
+
+    $query_insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
 
     if ($conn->query($query_insert) === TRUE) {
         echo "New record created successfully! :-) ";
@@ -32,7 +38,6 @@ if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_
         echo 'Error:' . $conn->error;
     }
 }
-
 
 
 ?>
@@ -51,9 +56,9 @@ if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_
 <br><hr><br>
 
 <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = 'post'>
-    INSERT INTO (ex: Utilizador): <input type = 'text' name='tablename'><br><br>
-    Atribute Lists (ex: id_facebook, nr_feed, nome): <input type = 'text' name='attributes'><br><br>
-    VALUES (ex: 10, '541', 'Jorge Silva'): <input type = 'text' name='values'><br><br>
+    <b>INSERT INTO (ex: Utilizador):</b> <input type = 'text' name='tablename'><br><br>
+    <b>Atribute Lists (ex: id_facebook, nr_feed, nome):</b> <input type = 'text' name='attributes'><br><br>
+    <b>VALUES (ex: 10, '541', 'Jorge Silva'):</b> <input type = 'text' name='values'><br><br>
     <input type='submit'>
 </form>
 
