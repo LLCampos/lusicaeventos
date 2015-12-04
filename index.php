@@ -26,7 +26,13 @@ mysqli_set_charset($conn,"utf8");
 
 <br><hr><br>
 
+<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = 'post'>
+    INSERT INTO: <input type = 'text' name='tablename'><br><br>
+    Atribute Lists: <input type = 'text' name='attributes'><br><br>
+    VALUES: <input type = 'text' name='values'><br><br>
+</form>
 
+<hr><br>
 
 <!-- ########################## Q2 ##################### -->
 
