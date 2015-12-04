@@ -11,6 +11,17 @@ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die('Error connecting 
 
 mysqli_set_charset($conn,"utf8");
 
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
+#if isset($_POST['tablename']) and isset($_POST['attributes']) and isset($_POST['values']) {
+
+#}
+
 ?>
 
 
@@ -39,7 +50,7 @@ mysqli_set_charset($conn,"utf8");
     <?php
 
     # Decide o que vai aparecer no header da secção
-    $q2artista = (isset($_POST['q2artista']) ? $_POST['q2artista'] : '');
+    $q2artista = (isset($_POST['q2artista']) ? test_input($_POST['q2artista']) : '');
     $header = ($q2artista != '' ? $q2artista : '_______________');
 
      ?>
@@ -99,7 +110,7 @@ mysqli_set_charset($conn,"utf8");
 
     <?php
 
-    $q6estilo = (isset($_POST['q6estilo']) ? $_POST['q6estilo'] : '');
+    $q6estilo = (isset($_POST['q6estilo']) ? test_input($_POST['q6estilo']) : '');
     $header = ($q6estilo != '' ? $q6estilo : '_______________');
 
      ?>
@@ -155,8 +166,8 @@ mysqli_set_charset($conn,"utf8");
     <?php
 
 
-    $q9festival = (isset($_POST['q9festival']) ? $_POST['q9festival'] : '');
-    $q9anos = (isset($_POST['q9anos']) ? $_POST['q9anos'] : '');
+    $q9festival = (isset($_POST['q9festival']) ? test_input($_POST['q9festival']) : '');
+    $q9anos = (isset($_POST['q9anos']) ? test_input($_POST['q9anos']) : '');
 
     $headerfestival = ($q9festival != '' ? $q9festival : '_______________');
     $headeranos = ($q9anos != '' ? $q9anos : '__');
