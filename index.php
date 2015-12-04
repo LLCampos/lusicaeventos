@@ -59,7 +59,7 @@ if (($tablename != '') and ($attributes != '') and ($values != '')) {
     <b>INSERT INTO (ex: Utilizador):</b> <input type = 'text' name='tablename'><br><br>
     <b>Atribute Lists (ex: id_facebook, nr_feed, nome):</b> <input type = 'text' name='attributes'><br><br>
     <b>VALUES (ex: 10, '541', 'Jorge Silva'):</b> <input type = 'text' name='values'><br><br>
-    <input type='submit'>
+    <input type='submit'value='Inserir!'>
 </form>
 
 <hr><br>
@@ -74,7 +74,7 @@ if (($tablename != '') and ($attributes != '') and ($values != '')) {
 
      ?>
 
-    <h1>Q2 - Lista de Eventos de <?php echo $header ?> em 2015</h1>
+    <h1>Q2 - Lista de Eventos de <?php echo $header ?> em 2015.</h1>
 
     <!-- Formulário -->
     <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
@@ -134,7 +134,7 @@ if (($tablename != '') and ($attributes != '') and ($values != '')) {
 
      ?>
 
-    <h1>Q6 - Classificações dos Artistas de <?php echo $header ?></h1>
+    <h1>Q6 - Classificações dos Artistas de <?php echo $header ?>.</h1>
 
     <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
         Estilo: <input type='text' name='q6estilo'><br>
