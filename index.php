@@ -18,9 +18,14 @@ function test_input($data) {
    return $data;
 }
 
-#if isset($_POST['tablename']) and isset($_POST['attributes']) and isset($_POST['values']) {
+if ((isset($_POST['tablename'])) and (isset($_POST['attributes'])) and (isset($_POST['values']))) {
+    $tablename = test_input($_POST['tablename']);
+    $attributes = test_input($_POST['attributes']);
+    $values = test_input($_POST['values']);
+    $insert = "INSERT INTO $tablename($attributes) VALUES ($values)";
+}
 
-#}
+
 
 ?>
 
@@ -41,6 +46,7 @@ function test_input($data) {
     INSERT INTO: <input type = 'text' name='tablename'><br><br>
     Atribute Lists: <input type = 'text' name='attributes'><br><br>
     VALUES: <input type = 'text' name='values'><br><br>
+    <input type='submit'>
 </form>
 
 <hr><br>
