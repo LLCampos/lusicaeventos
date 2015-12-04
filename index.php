@@ -22,6 +22,12 @@ mysqli_set_charset($conn,"utf8");
 
 <body>
 
+<h1 style='text-align:center;'>Delivery 2: Group ibd07</h1>
+
+<br><hr><br>
+
+
+
 <!-- ########################## Q2 ##################### -->
 
     <?php
@@ -35,7 +41,7 @@ mysqli_set_charset($conn,"utf8");
     <h1>Q2 - Lista de Eventos de <?php echo $header ?> em 2015</h1>
 
     <!-- Formulário -->
-    <form action = 'index.php' method='post'>
+    <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
         Artista: <input type='text' name='q2artista'><br>
         <input type='submit'>
     </form>
@@ -94,7 +100,7 @@ mysqli_set_charset($conn,"utf8");
 
     <h1>Q6 - Classificações dos Artistas de <?php echo $header ?></h1>
 
-    <form action = 'index.php' method='post'>
+    <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
         Estilo: <input type='text' name='q6estilo'><br>
         <input type='submit'>
     </form>
@@ -154,7 +160,7 @@ mysqli_set_charset($conn,"utf8");
 
     <h1>Q9 - Classificações dos Artistas que tocaram no <?php echo $headerfestival ?> nos últimos <?php echo $headeranos ?> anos. </h1>
 
-    <form action = 'index.php' method='post'>
+    <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method='post'>
         Festival: <input type='text' name='q9festival'><br>
         Anos: <input type='text' name='q9anos'><br>
         <input type='submit'>
